@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="avatars">
+        <item>@mipmap/avatar_1</item>
+        <item>@mipmap/avatar_2</item>
+        <item>@mipmap/avatar_3</item>
+        <item>@mipmap/avatar_4</item>
+        <item>@mipmap/avatar_5</item>
+        <item>@mipmap/avatar_6</item>
+    </array>
+</resources>
