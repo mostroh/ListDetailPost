@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "ListDetailPost"
-include ':app', ':data', ':usecases', ':domain'
+include ':app', ':data', ':usecases', ':domain', ':testShared'
