@@ -5,10 +5,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PostService {
-    @GET("post")
+    @GET("posts")
     suspend fun getPostList(): List<PostApiModel>
 
-    @GET("post/{id}")
+    @GET("posts/{id}")
     suspend fun getPost(
         @Path("id") id: Int
     ): PostApiModel
