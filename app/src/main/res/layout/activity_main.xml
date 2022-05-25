@@ -4,7 +4,6 @@
         <variable
             name="uiState"
             type="com.miguelete.post.ui.main.MainViewModel.MainUiState" />
-        <import type="com.miguelete.post.ui.main.MainViewModel.MainUiState.Loading"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -36,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:goneUnless="@{uiState.isLoading()}"/>
+            app:goneUnless="@{uiState.loading}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

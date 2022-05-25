@@ -4,7 +4,7 @@
     <data>
         <variable
             name="item"
-            type="com.miguelete.domain.Post" />
+            type="com.miguelete.post.ui.main.PostItemUiState" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -28,6 +28,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/userIcon"
                 app:ratio="1.5"
+                app:randomizeImage="@{true}"
                 android:scaleType="centerCrop" />
 
             <TextView
@@ -35,12 +36,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/padding_small"
-                android:textAppearance="?textAppearanceBody2"
+                android:textAppearance="?textAppearanceBody1"
+                android:textStyle="bold"
                 android:text="@{item.title}"
+                android:maxLines="1"
+                android:ellipsize="end"
                 app:layout_constraintStart_toEndOf="@id/userIcon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/postTitle"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/postBody"
                 tools:text="Post Title"/>
 
             <TextView

@@ -5,17 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.miguelete.domain.Post
 import com.miguelete.post.databinding.ViewPostItemBinding
 
-class PostAdapter(private val onPostClick:(Post) -> Unit):
-    ListAdapter<Post, PostAdapter.ViewHolder>(DiffCallback()) {
+class PostAdapter(private val onPostClick:(PostItemUiState) -> Unit):
+    ListAdapter<PostItemUiState, PostAdapter.ViewHolder>(DiffCallback()) {
 
-    class DiffCallback : DiffUtil.ItemCallback<Post>() {
-        override fun areItemsTheSame(oldItem: Post, newItem: Post) =
+    class DiffCallback : DiffUtil.ItemCallback<PostItemUiState>() {
+        override fun areItemsTheSame(oldItem: PostItemUiState, newItem: PostItemUiState) =
             oldItem.id == newItem.id
 
-        override fun areContentsTheSame(oldItem: Post, newItem: Post) =
+        override fun areContentsTheSame(oldItem: PostItemUiState, newItem: PostItemUiState) =
             oldItem == newItem
     }
 
@@ -31,9 +30,9 @@ class PostAdapter(private val onPostClick:(Post) -> Unit):
 
     class ViewHolder(
         private val binding: ViewPostItemBinding,
-        private val onPostClick: (Post) -> Unit,
+        private val onPostClick: (PostItemUiState) -> Unit,
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(post: Post) = with(binding) {
+        fun bind(post: PostItemUiState) = with(binding) {
             item = post
             binding.root.setOnClickListener { onPostClick(post) }
             binding.executePendingBindings()

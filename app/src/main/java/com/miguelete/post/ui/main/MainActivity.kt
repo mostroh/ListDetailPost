@@ -3,9 +3,14 @@ package com.miguelete.post.ui.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.miguelete.post.databinding.ActivityMainBinding
 import com.miguelete.post.ui.main.MainViewModel.MainUiState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -23,9 +28,19 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         binding.recycler.adapter = postAdapter
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect(::updateUi)
+            }
+        }
     }
 
     private fun updateUi(uiState: MainUiState) {
-        // TODO update ui
+        uiState.posts?.let(postAdapter::submitList)
+        uiState.navigateTo?.let(::navigateTo)
+    }
+
+    private fun navigateTo(postId: String) {
+        //TODO
     }
 }
