@@ -2,28 +2,27 @@ package com.miguelete.data.repository
 
 import com.miguelete.data.source.LocalDataSource
 import com.miguelete.data.source.RemoteDataSource
-import com.miguelete.domain.Post
+import com.miguelete.domain.Error
+import javax.inject.Inject
 
-class PostRepository(
+class PostRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val remoteDataSource: RemoteDataSource
 ) {
-    suspend fun getPostList(): List<Post> {
+
+    val posts get() = localDataSource.posts
+
+    suspend fun requestPosts(): Error? {
         if (localDataSource.isEmpty()) {
             val posts = remoteDataSource.getPostList()
-            localDataSource.savePosts(posts)
+            posts.fold(
+                ifLeft = { return it }
+            ) {
+                localDataSource.savePosts(it)
+            }
         }
-
-        return localDataSource.getPostList()
+        return null
     }
 
-    suspend fun getPost(id: Int): Post {
-        try {
-            val post = remoteDataSource.getPost(id)
-            localDataSource.update(post)
-        } catch (e: Exception) {
-
-        }
-        return localDataSource.findById(id)
-    }
+    suspend fun getPost(id: Int) = localDataSource.findById(id)
 }

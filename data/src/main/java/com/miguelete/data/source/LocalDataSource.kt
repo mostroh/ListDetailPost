@@ -1,11 +1,13 @@
 package com.miguelete.data.source
 
 import com.miguelete.domain.Post
+import com.miguelete.domain.Error
+import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSource {
+    val posts: Flow<List<Post>>
+
     suspend fun isEmpty(): Boolean
-    suspend fun savePosts(posts: List<Post>)
-    suspend fun getPostList(): List<Post>
-    suspend fun findById(id: Int): Post
-    suspend fun update(post: Post)
+    suspend fun savePosts(posts: List<Post>): Error?
+    suspend fun findById(id: Int): Flow<Post>
 }

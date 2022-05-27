@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateUi(uiState: MainUiState) {
         uiState.posts?.let(postAdapter::submitList)
-        uiState.navigateTo?.let(::navigateTo)
     }
 
     private fun navigateTo(postId: String) {

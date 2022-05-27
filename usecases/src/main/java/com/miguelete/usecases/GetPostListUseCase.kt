@@ -1,8 +1,8 @@
 package com.miguelete.usecases
 
 import com.miguelete.data.repository.PostRepository
-import com.miguelete.domain.Post
+import javax.inject.Inject
 
-class GetPostListUseCase(private val postRepository: PostRepository) {
-    suspend fun invoke(): List<Post> = postRepository.getPostList()
+class GetPostListUseCase @Inject constructor(private val postRepository: PostRepository) {
+    operator fun invoke() = postRepository.posts
 }

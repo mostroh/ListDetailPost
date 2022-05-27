@@ -9,3 +9,4 @@ fun Post.toItemUiState() = PostItemUiState(
     title,
     body
 )
+

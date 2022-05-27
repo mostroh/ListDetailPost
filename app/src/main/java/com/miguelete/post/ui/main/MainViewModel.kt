@@ -2,12 +2,12 @@ package com.miguelete.post.ui.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.miguelete.domain.Error
+import com.miguelete.post.toError
 import com.miguelete.post.ui.toItemUiState
 import com.miguelete.usecases.GetPostListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -23,16 +23,16 @@ class MainViewModel @Inject constructor(private  val getPostListUseCase: GetPost
     data class MainUiState(
         val loading : Boolean = false,
         val posts: List<PostItemUiState>? = null,
-        val navigateTo: String? = null
+        val error: Error? = null
     )
 
     private fun refresh() {
         viewModelScope.launch {
-            _state.value = MainUiState(loading = true)
-            _state.value = MainUiState(posts =
-                getPostListUseCase.invoke()
-                    .map { it.toItemUiState() }
-            )
+            getPostListUseCase()
+                .catch { cause -> _state.update { it.copy(error = cause.toError()) } }
+                .collect { posts ->
+                    _state.update { MainUiState(posts = posts.map { it.toItemUiState() }) }
+                }
         }
     }
 
