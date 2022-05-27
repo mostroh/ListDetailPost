@@ -6,10 +6,9 @@ import com.miguelete.post.data.toDomain
 import com.miguelete.post.data.toEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class RoomDataSource(db: PostDatabase): LocalDataSource {
-
-    private val postDao = db.postDao()
+class RoomDataSource @Inject constructor(private val postDao: PostDao): LocalDataSource {
 
     override suspend fun isEmpty() =
         withContext(Dispatchers.IO) { postDao.postCount() <=0 }

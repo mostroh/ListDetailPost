@@ -26,6 +26,10 @@ class AppModule {
     ).build()
 
     @Provides
+    @Singleton
+    fun postDaoProvider(db: PostDatabase) = db.postDao()
+
+    @Provides
     fun remoteDataSourceProvider(): RemoteDataSource = JsonPlaceholderDbDataSource()
 
     @Provides
