@@ -44,8 +44,4 @@ class MainViewModel @Inject constructor(
             _state.update { _state.value.copy(loading = false, error= error) }
         }
     }
-
-    fun onPostClick(post: PostItemUiState) {
-        //TODO
-    }
 }

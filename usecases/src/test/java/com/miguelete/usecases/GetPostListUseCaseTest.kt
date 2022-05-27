@@ -1,6 +1,5 @@
 package com.miguelete.usecases
 
-import com.miguelete.testshared.post1
 import com.miguelete.testshared.posts
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking

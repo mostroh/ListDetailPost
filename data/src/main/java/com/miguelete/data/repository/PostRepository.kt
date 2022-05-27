@@ -24,5 +24,5 @@ class PostRepository @Inject constructor(
         return null
     }
 
-    suspend fun getPost(id: Int) = localDataSource.findById(id)
+    fun getPost(id: Int) = localDataSource.findById(id)
 }

@@ -4,4 +4,5 @@
     <dimen name="padding_mid">8dp</dimen>
     <dimen name="image_item_width">60dp</dimen>
     <dimen name="small_elevation">2dp</dimen>
+    <dimen name="image_post_detail_height">120dp</dimen>
 </resources>

@@ -15,7 +15,7 @@ class RoomDataSource @Inject constructor(private val postDao: PostDao): LocalDat
 
     override val posts: Flow<List<Post>> = postDao.getAll().map { it.toDomain() }
 
-    override suspend fun isEmpty() = postDao.postCount() <= 0
+    override suspend fun isEmpty() = postDao.postCount() == 0
 
     override suspend fun savePosts(posts: List<Post>): Error? = tryCall {
         postDao.insertPosts(posts.toEntity())
@@ -24,5 +24,5 @@ class RoomDataSource @Inject constructor(private val postDao: PostDao): LocalDat
         ifRight = { null }
     )
 
-    override suspend fun findById(id: Int) = postDao.findById(id).map { it.toDomain() }
+    override fun findById(id: Int) = postDao.findById(id).map { it.toDomain() }
 }

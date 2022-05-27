@@ -9,5 +9,5 @@ interface LocalDataSource {
 
     suspend fun isEmpty(): Boolean
     suspend fun savePosts(posts: List<Post>): Error?
-    suspend fun findById(id: Int): Flow<Post>
+    fun findById(id: Int): Flow<Post>
 }
