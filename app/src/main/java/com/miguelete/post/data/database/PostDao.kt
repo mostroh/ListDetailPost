@@ -16,8 +16,8 @@ interface PostDao {
     fun findById(id: Int): Flow<PostEntity>
 
     @Query("SELECT COUNT(id) FROM PostEntity")
-    fun postCount(): Int
+    suspend fun postCount(): Int
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertPosts(posts: List<PostEntity>)
+    suspend fun insertPosts(posts: List<PostEntity>)
 }
