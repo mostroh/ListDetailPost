@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 class GetPostUseCase @Inject constructor(private val repository: PostRepository) {
 
-    suspend operator fun invoke(id: Int): Flow<Post> = repository.getPost(id)
+    operator fun invoke(id: Int): Flow<Post> = repository.getPost(id)
 }
