@@ -33,10 +33,13 @@ class MainActivity : AppCompatActivity() {
                 viewModel.state.collect(::updateUi)
             }
         }
+        viewModel.onUiReady()
     }
 
     private fun updateUi(uiState: MainUiState) {
-        uiState.posts?.let(postAdapter::submitList)
+        binding.loading = uiState.loading
+        binding.posts = uiState.posts
+        binding.error = uiState.error
     }
 
     private fun navigateTo(postId: String) {

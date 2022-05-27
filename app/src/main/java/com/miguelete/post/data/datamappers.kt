@@ -13,7 +13,7 @@ fun PostApiModel.toDomain() = Post(
 
 fun List<PostApiModel>.toDomainModel(): List<Post> = map { it.toDomain() }
 
-fun Post.toEntity() = PostEntity(
+fun Post.toEntity(): PostEntity = PostEntity(
     id,
     userId,
     title,
@@ -29,4 +29,4 @@ fun PostEntity.toDomain() = Post(
 
 fun List<PostEntity>.toDomain() = map { it.toDomain() }
 
-fun List<Post>.toEntity() = map { it.toEntity() }
+fun List<Post>.toEntity(): List<PostEntity> = map { it.toEntity() }

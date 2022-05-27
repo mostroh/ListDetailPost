@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
+        <import type="java.util.List" />
+
+        <import type="com.miguelete.post.ui.main.PostItemUiState" />
+
         <variable
-            name="uiState"
-            type="com.miguelete.post.ui.main.MainViewModel.MainUiState" />
+            name="loading"
+            type="boolean" />
+
+        <variable
+            name="posts"
+            type="List&lt;PostItemUiState>" />
+
+        <variable
+            name="error"
+            type="com.miguelete.domain.Error" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,11 +28,12 @@
             android:id="@+id/recycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:orientation="vertical"
             app:layout_constraintTop_toTopOf="parent"
+            app:items="@{posts}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <ProgressBar
@@ -35,7 +48,22 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:goneUnless="@{uiState.loading}"/>
+            app:goneUnless="@{loading}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/padding_mid"
+            android:layout_marginTop="@dimen/padding_mid"
+            android:layout_marginEnd="@dimen/padding_mid"
+            android:layout_marginBottom="@dimen/padding_mid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            android:textColor="?attr/colorError"
+            app:errorMessage="@{error}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
