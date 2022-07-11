@@ -3,24 +3,24 @@ package com.miguelete.testshared
 import com.miguelete.domain.Post
 
 fun post1() = Post(
-    1,
-    1,
-    "title1",
-    "body1"
+    id = 1,
+    userId = 1,
+    title = "title1",
+    body = "body1"
 )
 
 fun post2() = Post(
-    2,
-    1,
-    "title2",
-    "body2"
+    id = 2,
+    userId = 1,
+    title = "title2",
+    body = "body2"
 )
 
 fun post3() = Post(
-    3,
-    2,
-    "title3",
-    "body3"
+    id = 3,
+    userId = 2,
+    title = "title3",
+    body = "body3"
 )
 
 fun posts() = listOf(
