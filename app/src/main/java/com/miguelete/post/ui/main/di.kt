@@ -1,6 +1,6 @@
 package com.miguelete.post.ui.main
 
-import com.miguelete.data.repository.PostRepository
+import com.miguelete.domain.IPostRepository
 import com.miguelete.usecases.GetPostListUseCase
 import dagger.Module
 import dagger.Provides
@@ -14,6 +14,7 @@ class MainActivityModule {
 
     @Provides
     @ViewModelScoped
-    fun getPostListProvider(postRepository: PostRepository) =
+    fun getPostListProvider(postRepository: IPostRepository) =
         GetPostListUseCase(postRepository)
+
 }

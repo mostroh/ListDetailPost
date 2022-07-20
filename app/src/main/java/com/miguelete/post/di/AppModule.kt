@@ -2,8 +2,10 @@ package com.miguelete.post.di
 
 import android.app.Application
 import androidx.room.Room
+import com.miguelete.data.repository.PostRepository
 import com.miguelete.data.source.LocalDataSource
 import com.miguelete.data.source.RemoteDataSource
+import com.miguelete.domain.IPostRepository
 import com.miguelete.post.data.database.PostDatabase
 import com.miguelete.post.data.database.RoomDataSource
 import com.miguelete.post.data.server.JsonPlaceholderDbDataSource
@@ -70,4 +72,7 @@ abstract class AppDataModule {
 
     @Binds
     abstract fun bindRemoteDataSource(remoteDataSource: JsonPlaceholderDbDataSource): RemoteDataSource
+
+    @Binds
+    abstract fun bindPostRepository(postRepository: PostRepository): IPostRepository
 }
