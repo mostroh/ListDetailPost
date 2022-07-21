@@ -40,51 +40,39 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_small">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/header_content"
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideline"
+                    app:layout_constraintGuide_percent="0.3"
+                    android:orientation="vertical"/>
+
+                <com.miguelete.post.common.AspectRatioImageView
+                    android:id="@+id/userIcon"
+                    android:layout_height="@dimen/image_post_detail_height"
+                    android:layout_width="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/postBody"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"
+                    app:ratio="1.5"
+                    app:randomizeImage="@{true}"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/postTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_margin="@dimen/padding_small"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:textStyle="bold"
+                    android:text="@{post.title}"
+                    android:ellipsize="end"
+                    app:layout_constraintStart_toEndOf="@id/userIcon"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/postBody">
-
-                    <androidx.constraintlayout.widget.Guideline
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/guideline"
-                        app:layout_constraintGuide_percent="0.3"
-                        android:orientation="vertical"/>
-
-                    <com.miguelete.post.common.AspectRatioImageView
-                        android:id="@+id/userIcon"
-                        android:layout_height="@dimen/image_post_detail_height"
-                        android:layout_width="0dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/guideline"
-                        app:ratio="1.5"
-                        app:randomizeImage="@{true}"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:id="@+id/postTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/padding_small"
-                        android:textAppearance="?textAppearanceHeadline5"
-                        android:textStyle="bold"
-                        android:text="@{post.title}"
-                        android:ellipsize="end"
-                        app:layout_constraintStart_toEndOf="@id/userIcon"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="Post Title"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                    tools:text="Post Title"/>
+                
                 <TextView
                     android:id="@+id/postBody"
                     android:layout_width="0dp"
@@ -95,7 +83,7 @@
                     android:text="@{post.body}"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/header_content"
+                    app:layout_constraintTop_toBottomOf="@id/postTitle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="@tools:sample/lorem/random"/>
 
