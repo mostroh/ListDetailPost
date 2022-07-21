@@ -1,7 +1,7 @@
 package com.miguelete.post
 
-import com.miguelete.post.data.toDomain
-import com.miguelete.post.data.toEntity
+import com.miguelete.data.toDomain
+import com.miguelete.data.toEntity
 import com.miguelete.testshared.post1
 import com.miguelete.testshared.posts
 import org.junit.Test

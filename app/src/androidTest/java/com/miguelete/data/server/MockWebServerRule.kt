@@ -1,4 +1,4 @@
-package com.miguelete.post.data.server
+package com.miguelete.data.server
 
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.rules.TestWatcher

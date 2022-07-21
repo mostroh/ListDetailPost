@@ -1,11 +1,11 @@
-package com.miguelete.post.data.database
+package com.miguelete.data.database
 
 import com.miguelete.data.source.LocalDataSource
+import com.miguelete.data.tryCall
 import com.miguelete.domain.Post
 import com.miguelete.domain.Error
-import com.miguelete.post.data.toDomain
-import com.miguelete.post.data.toEntity
-import com.miguelete.post.tryCall
+import com.miguelete.data.toDomain
+import com.miguelete.data.toEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

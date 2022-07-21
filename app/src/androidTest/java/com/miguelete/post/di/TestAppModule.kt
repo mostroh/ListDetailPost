@@ -2,8 +2,8 @@ package com.miguelete.post.di
 
 import android.app.Application
 import androidx.room.Room
-import com.miguelete.post.data.database.PostDatabase
-import com.miguelete.post.data.server.PostService
+import com.miguelete.data.database.PostDatabase
+import com.miguelete.data.server.PostService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent

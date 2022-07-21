@@ -1,4 +1,4 @@
-package com.miguelete.post.data.server.apimodels
+package com.miguelete.data.server.apimodels
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

@@ -1,4 +1,4 @@
-package com.miguelete.post.data.database
+package com.miguelete.data.database
 
 import androidx.room.Dao
 import androidx.room.Query

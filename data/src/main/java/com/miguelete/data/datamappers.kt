@@ -1,8 +1,8 @@
-package com.miguelete.post.data
+package com.miguelete.data
 
 import com.miguelete.domain.Post
-import com.miguelete.post.data.database.PostEntity
-import com.miguelete.post.data.server.apimodels.PostApiModel
+import com.miguelete.data.database.PostEntity
+import com.miguelete.data.server.apimodels.PostApiModel
 
 fun PostApiModel.toDomain() = Post(
     id,

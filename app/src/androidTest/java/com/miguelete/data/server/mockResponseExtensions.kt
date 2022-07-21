@@ -1,4 +1,4 @@
-package com.miguelete.post.data.server
+package com.miguelete.data.server
 
 import androidx.test.platform.app.InstrumentationRegistry
 import okhttp3.mockwebserver.MockResponse

@@ -9,8 +9,8 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.miguelete.post.R
-import com.miguelete.post.data.server.MockWebServerRule
-import com.miguelete.post.data.server.fromJson
+import com.miguelete.data.server.MockWebServerRule
+import com.miguelete.data.server.fromJson
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi

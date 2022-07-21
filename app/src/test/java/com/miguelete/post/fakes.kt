@@ -1,11 +1,9 @@
 package com.miguelete.post
 
-import com.miguelete.post.data.database.PostDao
-import com.miguelete.post.data.database.PostEntity
-import com.miguelete.post.data.server.PostService
-import com.miguelete.post.data.server.apimodels.PostApiModel
-import com.miguelete.post.data.toDomain
-import com.miguelete.post.data.toDomainModel
+import com.miguelete.data.database.PostDao
+import com.miguelete.data.database.PostEntity
+import com.miguelete.data.server.PostService
+import com.miguelete.data.server.apimodels.PostApiModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 

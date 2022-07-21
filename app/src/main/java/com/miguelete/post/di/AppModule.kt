@@ -6,10 +6,10 @@ import com.miguelete.data.repository.PostRepository
 import com.miguelete.data.source.LocalDataSource
 import com.miguelete.data.source.RemoteDataSource
 import com.miguelete.domain.IPostRepository
-import com.miguelete.post.data.database.PostDatabase
-import com.miguelete.post.data.database.RoomDataSource
-import com.miguelete.post.data.server.JsonPlaceholderDbDataSource
-import com.miguelete.post.data.server.PostService
+import com.miguelete.data.database.PostDatabase
+import com.miguelete.data.database.RoomDataSource
+import com.miguelete.data.server.JsonPlaceholderDbDataSource
+import com.miguelete.data.server.PostService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

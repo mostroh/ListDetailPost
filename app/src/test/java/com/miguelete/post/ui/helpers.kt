@@ -3,10 +3,10 @@ package com.miguelete.post.ui
 import com.miguelete.data.repository.PostRepository
 import com.miguelete.post.FakePostDao
 import com.miguelete.post.FakeRemoteService
-import com.miguelete.post.data.database.PostEntity
-import com.miguelete.post.data.database.RoomDataSource
-import com.miguelete.post.data.server.JsonPlaceholderDbDataSource
-import com.miguelete.post.data.server.apimodels.PostApiModel
+import com.miguelete.data.database.PostEntity
+import com.miguelete.data.database.RoomDataSource
+import com.miguelete.data.server.JsonPlaceholderDbDataSource
+import com.miguelete.data.server.apimodels.PostApiModel
 
 fun buildRepositoryWith(
     localData: List<PostEntity>,

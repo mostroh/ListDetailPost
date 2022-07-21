@@ -1,8 +1,8 @@
 package com.miguelete.post.ui.detail
 
 import app.cash.turbine.test
-import com.miguelete.post.data.database.PostEntity
-import com.miguelete.post.data.server.apimodels.PostApiModel
+import com.miguelete.data.database.PostEntity
+import com.miguelete.data.server.apimodels.PostApiModel
 import com.miguelete.post.ui.detail.DetailViewModel.UiState
 import com.miguelete.post.testrules.CoroutinesTestRule
 import com.miguelete.post.ui.buildDatabasePosts
